@@ -1,61 +1,20 @@
 
+const url = "./data.js"
 
+fetch(url)
+.then(res => res.json())
+.then(data => mostrarProductos.log(data))
 const tbody = document.querySelector("tbody")
+
+function mostrarProductos(productos){
+    console.log(productos);
+
+    productos.forEach(prod => console.log(prod))
+}
 
 const carrito = []
 
-const figuras = [
 
-                {imagen: '/images/batman.png',
-                codigo: 1,
-                tipo: 'Batman',
-                precio: 1026},
-
-
-                {imagen: '/images/superman.png',
-                codigo: 2,
-                tipo: 'Superman',
-                precio: 10710},
-
-                {imagen: '/images/catwoman.png',
-                codigo: 3,
-                tipo: 'Catwoman',
-                    precio: 10892},
-
-                {imagen: '/images/wonderwoman.png',
-                codigo: 4,
-                tipo: 'Wonder Woman',
-                    precio: 10264},
-
-                {imagen: '/images/capitanamerica.png',
-                codigo: 5,
-                tipo: 'Capitan America',
-                    precio: 11528},
-
-                {imagen: '/images/hulk.png',
-                codigo: 6,
-                tipo: 'Hulk',
-                    precio: 11047},
-
-                {imagen: '/images/blackcat.png',
-                codigo: 7,
-                tipo: 'Black Cat',
-                    precio: 112654},
-
-                {imagen: '/images/capmarvel.jpg',
-                codigo: 8,
-                tipo: 'Capitan Marvel',
-                    precio: 11215},
-
-                {imagen: '/images/doom.jpg',
-                codigo: 9,
-                tipo: 'Doom Trooper',
-                    precio: 19812},
-
-                {imagen: '/images/duke.jpg',
-                codigo: 10,
-                tipo: 'Duke Nukem',
-                    precio: 20158}]
 
 
 function buscarFigura(codigo) {
@@ -68,7 +27,7 @@ function buscarFigura(codigo) {
 function retornoFilaHTML(figura) {
 
     return `<tr>
-                <td>${figura.imagen}</td> 
+                <td><img src="${figura.imagen}"</td> 
                 <td>${figura.tipo}</td>
                 <td>$ ${figura.precio}</td>
                 <td><button id="${figura.codigo}">ADD</button></td>
@@ -111,6 +70,10 @@ function agregarAlCarrito(id) {
         if (resultado !== undefined) {
             carrito.push(resultado)
             console.log("Se agregó la figura de", resultado.tipo, "al carrito.")
+            Swal.fire(
+                'Producto agregado',
+                'question'
+            )
             guardarElCarrito(carrito)
         }
 }
