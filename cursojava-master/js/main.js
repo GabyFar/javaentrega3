@@ -127,11 +127,10 @@ function guardarElCarrito(carrito) {
 }
 
 function recuperarCarrito() {
-
-    const carritoRecuperado = JSON.parse(localStorage.getItem("carritoFiguras"))
-    if (carritoRecuperado.length > 0) {
-        carrito.push(...carritoRecuperado)
-    }
+	const carritoRecuperado = JSON.parse(localStorage.getItem("carritoFiguras")) || [];
+	if (carritoRecuperado.length > 0) {
+		carrito.push(...carritoRecuperado);
+	}
 }
 recuperarCarrito()
 
@@ -141,3 +140,45 @@ function finalizarCompra() {
     alert("El importe del carrito es de: $ " + totalCarrito)
 }
 
+fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(json => {
+        console.log(json)
+
+    .getElementById('1')
+        
+    })
+
+    let usuario = [{
+        name: "Leanne Graham",
+        username: "Bret"
+    },
+    
+    {
+        name: "Ervin Howell",
+        username: "Antonette"
+    },
+    
+    {
+        name: "Clementine Bauch",
+        username: "Samantha"
+    },
+    
+    {
+        name: "Patricia Lebsack",
+        username: "Karianne"
+    }
+    ]
+    
+    
+    function buscarUsuario(usuario, indice) {
+    if (usuario.name === "Leanne Graham") console.log(indice);
+    return usuario.name === "Leanne Graham"
+    }
+    
+    
+    let  = elusuario.find((usuario, indice) => buscarUsuario(usuario, indice));
+    
+    
+    console.log(elUsuario);
+    
