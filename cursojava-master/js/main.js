@@ -111,10 +111,12 @@ function agregarAlCarrito(id) {
         if (resultado !== undefined) {
             carrito.push(resultado)
             console.log("Se agregó la figura de", resultado.tipo, "al carrito.")
-            Swal.fire(
-                'Producto agregado',
-                'question'
-            )
+            Swal.fire({
+                icon: 'success',
+                title: 'Producto agregado a su carrito',
+                
+                
+            })
             guardarElCarrito(carrito)
         }
 }
@@ -138,47 +140,16 @@ function finalizarCompra() {
     
     let totalCarrito = carrito.reduce((acc, figura)=> acc + figura.precio, 0)
     alert("El importe del carrito es de: $ " + totalCarrito)
+
+    
+    
 }
 
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(json => {
-        console.log(json)
-
-    .getElementById('1')
+        console.log(json) 
+        
         
     })
 
-    let usuario = [{
-        name: "Leanne Graham",
-        username: "Bret"
-    },
-    
-    {
-        name: "Ervin Howell",
-        username: "Antonette"
-    },
-    
-    {
-        name: "Clementine Bauch",
-        username: "Samantha"
-    },
-    
-    {
-        name: "Patricia Lebsack",
-        username: "Karianne"
-    }
-    ]
-    
-    
-    function buscarUsuario(usuario, indice) {
-    if (usuario.name === "Leanne Graham") console.log(indice);
-    return usuario.name === "Leanne Graham"
-    }
-    
-    
-    let  = elusuario.find((usuario, indice) => buscarUsuario(usuario, indice));
-    
-    
-    console.log(elUsuario);
-    
